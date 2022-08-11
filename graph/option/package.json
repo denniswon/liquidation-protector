@@ -1,0 +1,17 @@
+{
+  "name": "option",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create ivanzrx/option --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create ivanzrx/option --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --product hosted-service ivanzrx/option --node https://api.thegraph.com/deploy/ --network mumbai",
+    "deploy-local": "graph deploy ivanzrx/option --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.30.2",
+    "@graphprotocol/graph-ts": "^0.27.0",
+    "matchstick-as": "0.5.0"
+  }
+}

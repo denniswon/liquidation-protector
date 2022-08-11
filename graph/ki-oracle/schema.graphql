@@ -1,0 +1,5 @@
+type KiOracle @entity {
+  id: ID!
+  timestamp: BigInt!
+  price: BigInt!
+}

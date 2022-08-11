@@ -1,0 +1,28 @@
+type KiOption @entity {
+  id: ID!
+  tokenAddress: Bytes!
+  creator: Bytes!
+  underlying: Bytes!
+  collateral: Bytes!
+  barrierPrice: BigInt!
+  expiry: BigInt!
+  isUp: Boolean!
+  isPlus: Boolean!
+  blockTimeStamp: BigInt!
+}
+type OptionTokenBalance @entity {
+  id: ID!
+  tokenAddress: Bytes!
+  owner: Bytes!
+  balance: BigInt!
+  lastBlock: BigInt!
+  redeemed: Boolean!
+}
+type OptionExecuted @entity {
+  id: ID!
+  optionId: Bytes!
+  optionName: String!
+  optionAddress: Bytes!
+  roundId: BigInt!
+  blockTimestamp: BigInt!
+}

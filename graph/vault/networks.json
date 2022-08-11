@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "Vault": {
+      "address": "0xb2C951244AfFAe2D8602E7Cc8cf73d5485355705",
+      "startBlock": "27554234"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+type Vault @entity {
+  id: ID!
+  debt: BigInt!
+  collateral: BigInt!
+  liquidationPrice: BigInt!
+  blockTimeStamp: BigInt!
+}

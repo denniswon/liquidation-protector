@@ -1,0 +1,18 @@
+type Order @entity {
+  id: ID!
+  creator: Bytes!
+  underlying: Bytes!
+  collateral: Bytes!
+  multiplier: BigInt!
+  barrierPrice: BigInt!
+  expiry: BigInt!
+  isUp: Boolean!
+  premium: BigInt!
+  orderNonce: BigInt!
+  orderStatus: BigInt!
+}
+
+type MarketInfo @entity {
+  id: ID!
+  totalOpenOrderCount: Int!
+}

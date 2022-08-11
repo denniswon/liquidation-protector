@@ -1,0 +1,26 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OptionMarket
+    network: mumbai
+    source:
+      address: '0xe4a486c26c0304a0bd45455da98415422717c5f5'
+      abi: OptionMarket
+      startBlock: 27554089
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - MarketData
+      abis:
+        - name: OptionMarket
+          file: ./abis/OptionMarket.json
+      eventHandlers:
+        - event: OrderCreated(bytes32,address,address,address,uint256,uint256,uint256,bool,uint256,uint256)
+          handler: handleOrderCreated
+        - event: OrderStatusChanged(bytes32,uint256)
+          handler: handleOrderStatusChanged
+      file: ./src/mapping.ts

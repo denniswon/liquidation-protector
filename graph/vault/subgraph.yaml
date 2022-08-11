@@ -1,0 +1,25 @@
+specVersion: 0.0.4
+description: Maker DAO vault mock
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Vault
+    network: mumbai
+    source:
+      abi: DaiVault
+      address: '0xb2C951244AfFAe2D8602E7Cc8cf73d5485355705'
+      startBlock: 27554234
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - VaultUpdated
+      abis:
+        - name: DaiVault
+          file: ./abis/DaiVault.json
+      eventHandlers:
+        - event: VaultUpdated(indexed address,uint256,uint256,uint256)
+          handler: handleVaultUpdated
+      file: ./src/mapping.ts

@@ -1,0 +1,24 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: KiOracle
+    network: mumbai
+    source:
+      abi: OracleMock
+      address: '0x8f84e95ccde0d63dd7789d13a023821da8abc52b'
+      startBlock: 27557242
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PriceUpdate
+      abis:
+        - name: OracleMock
+          file: ./abis/OracleMock.json
+      eventHandlers:
+        - event: PriceUpdate(indexed uint256,indexed uint256,uint256)
+          handler: handlePriceUpdate
+      file: ./src/mapping.ts
