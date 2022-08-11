@@ -1,5 +1,10 @@
 # Liquidation Protector : Onchain Knock-In Option Protocol
 
+## Links
+1. [Introduction Deck](https://docs.google.com/presentation/d/1P7nlzPYJrjCPuKpMasZLGXPbLBByhtVsbhr51vgkQi4)
+2. [Video Demo](https://www.youtube.com/watch?v=pIIS83bnaxg)
+3. [Live site](http://liquidation-protector.s3-website-us-east-1.amazonaws.com/)
+
 ## Introduction
 
 ### Background
@@ -85,3 +90,40 @@
 * Option Issuance: Minting both Long & Short KI Option Tokens at once by depositing payoff.
 * Payoff: Deposited token to be paid to Long Option Holder or Short Option Holder depending on the event or the maturity.
 * Settlement: If the event is triggered, the payoff is delivered to the Long KI Option Holder, and the Long & Short KI Options are terminated.
+
+## File structures
+* Knock-in Option parts  
+  - contracts/KIOptionFactory.sol
+  - contracts/KIOptionController.sol
+  - contracts/token/KIOption.sol
+  - contracts/token/KIMinusOption.sol
+  - contracts/token/KIPlusOption.sol
+* MakerDAOMock parts:  
+A mock of MakerDAO, a project that takes Ethereum as collateral and issues DAI, a stable coin linked to the dollar.  
+  - contracts/MakerDaoController.sol
+  - contracts/MakerDaoVault.sol
+* TheGraph subgraphs
+  - graph/ki-oracle
+  - graph/option
+  - graph/optionmarket
+  - graph/vault
+* hardhat tests & tasks
+  - tasks/
+  - test/  
+
+* bot parts(Execution Bot, Redeem Bot, Liquidation Bot:  
+
+(Execution Bot)  
+1. when Option Factory contract and Oracle contract emit some events, the Graph nodes listen the events and handle the event data to store.
+2. Executor bot periodically polls the information that returns about oracle market price of ETH and option creation data. Then stores them in a redis database.
+3. Executor processes periodically polls the redis database to get a subset of options. Processes loop through the options to decide if they are executable according to comparison between a barrier price and the market price of ETH. If it fulfills the condition, the code immediately sends a transaction to execute them.  
+
+(Liquidation Bot)
+1. when MakerDAO Vault contract and Oracle contract emit some events, the Graph nodes listen the events and handle the event data to store.
+2. Liquidation bot periodically polls the information that returns about oracle market price of ETH and vault collateral data. Then stores them in a redis database.
+3. Liquidator processes periodically polls the redis database to get a subset of vaults. Processes loop through the vaults to decide if they are liquidatable according to comparison between a liquidation price and the market price of ETH. If it fulfills the condition, the code immediately sends a transaction to liquidate them.  
+
+(Redeem Bot)  
+A bot that automatically adds the payoff received from executed options to the MakerDAO collateral for option buyers.
+  - execution_bot/
+  - liquidation_bot/  
