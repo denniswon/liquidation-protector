@@ -35,8 +35,8 @@
     - They seek sales commissions by selling the option on their platforms.
     - In excessive market volatility, collateral impairment or default risk can be reduced.
 
-### Mechanism
-#### Option Issuance
+## Mechanism
+### Option Issuance
 * First, the option issuer issues Long KI Option Token & Short KI Option Token. Then, set parameters for the options.
 * Parameters
     - Issuing Options: Long KI Option Token & Short KI Option Token
@@ -47,9 +47,8 @@
     - Payoff: Payoff is fixed at 1 underlying asset. The payoff should be deposited at issuance. (e.g., Payoff = 1 ETH)
 
 ![Option Issuance](./3.png)  
-[Option Issuance]
 
-#### Option Trade
+### Option Trade
 * Options are ERC20. Buy/sell positions can be traded on OTC.
     - Due to frequent maturities and various products, it would like to be traded in OTC (P2P) rather than AMM.
 * If investors want to close their open positions, they can sellout options in their addresses or offset their positions by buying opposite positions.
@@ -57,28 +56,25 @@
 * The quotation in this platform shows the parameters of the KI Option, the model price, and the quote price offered by the seller.
 
 ![Option Trade](./4.png)  
-[Option Trade]
 
-#### Option Termination
+### Option Termination
 * At the maturity without the event, the option is terminated, and the deposited payoff is claimable for the Short Option holder.
 
 ![Option Termination](./5.png)  
-[Option Termination]
 
-#### Option Settlement
+### Option Settlement
 * The option event is triggered if the mark price crosses the barrier price before maturity. And the deposited payoff is paid to the Long Option holder.
 
 ![Option Settlement](./6.png)  
-[Option Settlement]
 
-### Conclusion
+## Conclusion
 * Leveraging has been common knowledge as crypto derivatives and DeFi markets grow. There was a deleverage in the recent bear market, and we’ve witnessed many liquidation cases. It led to default risk with bigger market loss, and it caused a significant decline in the overall market.
 * Therefore, we strongly believe there is a greater market need for liquidation protection instruments and trading these instruments. Not only the liquidation protector will manage individual investors, but also the systematic risk of the market.
 * The leverage position of liquidation is path-dependent. Thus, we choose the KI Option and propose the KI Option Protocol runs with minimum functions.
     - The MVP model does not clear the issue of liquidity, a common issue in the options market. Yet, the team will find a solution through further research. Fortunately, various problem-solving methods are proposed and ready to be proven in the market.
 * When our KI Option works as liquidity protection appropriately, it can be integrated with futures and lending protocols as collateral or insurance.
 
-### Appendix - Glossary
+## Appendix - Glossary
 * Mark Price: Base price of underlying asset imported from oracle.
 * Barrier Price: Price level to trigger events.
 * Event: Event is triggered when Mark Price crosses Strike Price.
