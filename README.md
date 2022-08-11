@@ -17,10 +17,10 @@
 * At the maturity without the event, the option is terminated, and the deposited payoff is claimable for the Short Option holder.
 * The option event is triggered if the mark price crosses the barrier price before maturity. And the deposited payoff is paid to the Long Option holder.
 
-![Example of an event trigger and settlement of an option](./1.png)  
+![Example of an event trigger and settlement of an option](./images/1.png)  
 [Example of an event trigger and settlement of an option]
 
-![Example of termination of an option](./2.png)  
+![Example of termination of an option](./images/2.png)  
 [Example of termination of an option]
 
 
@@ -46,7 +46,7 @@
     - Maturity: Date of termination of the option.
     - Payoff: Payoff is fixed at 1 underlying asset. The payoff should be deposited at issuance. (e.g., Payoff = 1 ETH)
 
-![Option Issuance](./3.png)  
+![Option Issuance](./images/3.png)  
 
 ### Option Trade
 * Options are ERC20. Buy/sell positions can be traded on OTC.
@@ -55,17 +55,17 @@
 (e.g., holding the same amount of Long options and Short options with the same barrier price & maturity, the open position is zero.)
 * The quotation in this platform shows the parameters of the KI Option, the model price, and the quote price offered by the seller.
 
-![Option Trade](./4.png)  
+![Option Trade](./images/4.png)  
 
 ### Option Termination
 * At the maturity without the event, the option is terminated, and the deposited payoff is claimable for the Short Option holder.
 
-![Option Termination](./5.png)  
+![Option Termination](./images/5.png)  
 
 ### Option Settlement
 * The option event is triggered if the mark price crosses the barrier price before maturity. And the deposited payoff is paid to the Long Option holder.
 
-![Option Settlement](./6.png)  
+![Option Settlement](./images/6.png)  
 
 ## Conclusion
 * Leveraging has been common knowledge as crypto derivatives and DeFi markets grow. There was a deleverage in the recent bear market, and we’ve witnessed many liquidation cases. It led to default risk with bigger market loss, and it caused a significant decline in the overall market.
